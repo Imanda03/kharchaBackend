@@ -1,0 +1,4 @@
+POSTGRES_HOST=my_db
+POSTGRES_USER=mike
+POSTGRES_PASSWORD=supersecretpassword
+POSTGRES_DB=my_project_db

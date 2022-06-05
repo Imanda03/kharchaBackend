@@ -1,0 +1,193 @@
+{% autoescape off %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+   <style type="text/css">
+      @page {
+         size: a4 portrait;
+         margin: 1cm;
+      }
+
+      body {
+         text-align: center;
+         margin: 0 auto;
+         font-family: 'Open Sans', sans-serif;
+         background-color: #E2E2E2;
+         display: block;
+      }
+
+      a {
+         text-decoration: none;
+      }
+
+      p {
+         margin: 15px 0;
+      }
+
+      h5 {
+         color: #444;
+         text-align: left;
+         font-weight: 400;
+      }
+
+      .text-center {
+         text-align: center
+      }
+
+      .main-bg-light {
+         background-color: #FAFAFA;
+      }
+
+      .title {
+         color: #444444;
+         font-size: 22px;
+         font-weight: bold;
+         margin-top: 10px;
+         margin-bottom: 10px;
+         padding-bottom: 0;
+         text-transform: capitalize;
+         display: inline-block;
+         line-height: 1;
+      }
+
+      .title2 {
+         font-size: 20px;
+      }
+
+      table {
+         margin-top: 0px;
+      }
+
+      table.top-0 {
+         margin-top: 0;
+      }
+
+      table.order-detail,
+      .order-detail th,
+      .order-detail td {
+         /* border: 1px solid #ddd; */
+         border-collapse: collapse;
+      }
+
+      .order-detail th {
+         font-size: 12px;
+         padding: 7px 5px 3px 5px;
+         text-align: center;
+         color: rgb(44, 44, 172);
+      }
+
+      .order-detail td {
+         font-size: 12px;
+      }
+
+      .order-detail tr th{
+         border-left: 1px solid rgb(181, 181, 218);
+         border-right: 1px solid rgb(181, 181, 218);
+      }
+
+      .sub-title{
+         color: rgb(44, 44, 172);
+         font-size: 13px;
+      }
+
+      .sub-content{
+         font-size: 12px;
+      }
+
+      .title3 td{
+         line-height: 1.7;
+      }
+
+   </style>
+</head>
+
+<body style="margin: 20px auto;" id="header_frame">
+   <table align="center" border="0" cellpadding="0" cellspacing="0"
+      style="padding: 5px 5px;background-color: #fff; -webkit-box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);box-shadow: 0px 0px 14px -4px rgba(0, 0, 0, 0.2705882353);width: 80%;">
+      <tbody>
+         <tr style="padding-bottom: 5px;">
+            <td>
+               <table border="0" cellpadding="0" cellspacing="0">
+                  <tr style="padding: 0px 0px 5px 0px; margin: 0px; font-family: 'Open Sans', sans-serif; font-size: 13px;">
+                     <td align="left">
+                        <h2 class="title title2"><img src="{{ url }}/logo/logo.png" alt="Microstay"></h2><br>
+                        <h1>{{ booking.hotel.title }}</h1>
+                     </td>
+                     <td align="right">
+                        <br>Pokhara<br>
+                        Tel No. : 061-540563<br>
+                        PAN No. : 304442580<br>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                     <td>
+                        <h2 class="title">Invoice</h2>
+                     </td>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table cellpadding="0" cellspacing="0" border="0"
+                  style="width: 45%; margin-top: 0px; text-align: left; border: 0px solid #ddd; border-collapse: collapse;">
+                  <tbody>
+                     <tr class="title3">
+                        <td><span class="sub-title">Booking ID</span><br> <span class="sub-content">#{{ invoice.booking_name }}</span></td>
+                        <td><span class="sub-title">Invoice Date</span> <br><span class="sub-content">{{ invoice_date }}</span></td>
+                        <td><span class="sub-title">Invoice Number</span> <br><span class="sub-content">INV-00{{ invoice.id }}</span></td>
+                        <td style="text-align: right;"><span class="sub-title">Commissoin Percentage</span> <br><span class="sub-content">{{ invoice.commission_percent }}%</span></td>
+                     </tr>
+                     <tr>
+                        <td style="text-align: right; line-height: 1.7;" colspan="4"><span class="sub-title">Total Amount</span> <br> <span style="font-size: 14px; font-weight: 400;">Rs. {{ invoice.price }}</span></td>
+                     </tr>
+                     <tr>
+                        <td style="text-align: left; font-size: 13px;" colspan="4"><span class="sub-title">Customer Name :</span> {{ booking.first_name }} {{ booking.last_name }}</td>
+                     </tr>
+                  </tbody>
+               </table>
+
+               <table class="order-detail" cellpadding="0" cellspacing="0" border="0" style="border: none;">
+                  <tr style="border-top: 2px solid rgb(108, 108, 195);">
+                     <th>Check In</th>
+                     <th>Check Out</th>
+                     <th>Booking Date</th>
+                     <th>No of Rooms</th>
+                  </tr>
+                  <tr style="font-size: 12px; border: 1px solid rgb(181, 181, 218);">
+                     <td>{{ invoice.booking_check_in_date }}</td>
+                     <td>{{ invoice.booking_check_out_date }}</td>
+                     <td>{{ invoice.booking_date }}</td>
+                     <td>{{ booking.no_of_rooms }}</td>
+                  </tr>
+                  </tr>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <table cellpadding="0" cellspacing="0" border="0" align="left" style="width: 100%; margin-top: 60px;">
+                  <tbody>
+                     <tr
+                        style="margin-top: 30px; text-align: center; font-weight: bold; padding-top:20px; font-size: 14px;">
+                        <td>
+                           Thank you !
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</body>
+</html>
+{% endautoescape %}

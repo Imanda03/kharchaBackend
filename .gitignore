@@ -1,0 +1,15 @@
+.env
+*/__pycache__/
+*/migrations/
+dump.rdb
+media/*
+static/
+DockerData/
+static/*
+!media/default/
+
+pgenv.txt
+env.txt
+./DockerData
+
+*.pgerd

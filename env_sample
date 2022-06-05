@@ -1,0 +1,16 @@
+DEBUG=True
+DATABASE_URL=postgres://postgres:admin@localhost:5432/sharing_is_caring
+DATABASE_NAME=db_name
+DATABASE_USER=postgres
+DATABASE_PASSWORD=DB_ASP
+SECRET_KEY="CHANGE_THIS"
+ALLOWED_HOSTS=localhost,127.0.0.1
+ENVIRONMENT="Test"
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='nischal@g.com'
+EMAIL_HOST_PASSWORD='ajkfsass'
+EMAIL_PORT=587
+CLIENT_URL='http://139.59.67.104:9797'
+ADMIN_URL='http://139.59.67.104:9798'
+CELERY_BROKER_URL='redis://localhost:6379'
+CELERY_RESULT_BACKEND='redis://localhost:6379'
